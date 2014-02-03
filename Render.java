@@ -1,14 +1,19 @@
-import java.awt.Frame;
+import javax.swing.JFrame;
 
 public class Render {
 
     Game game;
-    Frame frame;
+    JFrame frame;
+    RenderComponent screen;
 
     public Render(Game game) {
         this.game = game;
-        frame = new Frame("Ogre");
-        frame.setSize(800, 600);
+        frame = new JFrame("Ogre");
+        screen = new RenderComponent();
+        frame.add(screen);
+        frame.pack();
+        frame.setResizable(false);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
