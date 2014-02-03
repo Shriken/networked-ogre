@@ -2,7 +2,7 @@ package NetworkedOgre;
 
 import NetworkedOgre.graphics.Render;
 
-public class Main {
+public class NetworkedOgre {
 
     public static Game game;
     public static Render render;
