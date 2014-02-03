@@ -1,4 +1,5 @@
+# Java class files
 *.class
-.DS_Store
-bin/
+
+# vim .swp
 *.swp
