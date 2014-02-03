@@ -1,14 +1,14 @@
-package NetworkedOgre;
+package NetworkedOgre.tiles;
 
-import NetworkedOgre.Unit;
+import java.util.ArrayList;
+
+import NetworkedOgre.units.Unit;
 
 public class Tile {
 
-    private int type;
     private ArrayList<Unit> units;
 
-    public Tile(int type) {
-        this.type = type;
+    public Tile() {
         ArrayList<Unit> units = new ArrayList<Unit>();
     }
 
