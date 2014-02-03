@@ -1,5 +1,7 @@
 package NetworkedOgre;
 
+import NetworkedOgre.graphics.Render;
+
 public class Main {
 
     public static Game game;

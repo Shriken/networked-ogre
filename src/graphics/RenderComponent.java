@@ -1,4 +1,4 @@
-package NetworkedOgre;
+package NetworkedOgre.graphics;
 
 import java.awt.Component;
 import java.awt.Dimension;

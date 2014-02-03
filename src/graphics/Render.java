@@ -1,6 +1,8 @@
-package NetworkedOgre;
+package NetworkedOgre.graphics;
 
 import javax.swing.JFrame;
+
+import NetworkedOgre.Game;
 
 public class Render {
 
