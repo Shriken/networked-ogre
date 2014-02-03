@@ -3,3 +3,9 @@
 
 # vim swp files
 *.swp
+
+# ant compilation target directory
+bin/
+
+# OS X filesystem cruft
+.DS_Store
