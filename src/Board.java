@@ -1,6 +1,6 @@
 package NetworkedOgre;
 
-import NetworkedOgre.Tile;
+import NetworkedOgre.tiles.Tile;
 
 public class Board {
 
