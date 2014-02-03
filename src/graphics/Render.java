@@ -1,23 +1,37 @@
 package NetworkedOgre.graphics;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
-
 import NetworkedOgre.Game;
 
 public class Render {
 
     Game game;
     JFrame frame;
-    RenderComponent screen;
+    RenderCanvas screen;
 
     public Render(Game game) {
         this.game = game;
         frame = new JFrame("Ogre");
-        screen = new RenderComponent();
+        screen = new RenderCanvas();
+
         frame.add(screen);
         frame.pack();
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        screen.createBufferStrategy(2);
+    }
+
+    public void render() {
+        BufferStrategy bs = screen.getBufferStrategy();
+        Graphics g = bs.getDrawGraphics();
+        g.setColor(Color.RED);
+        g.fillRect(0, 0, 50, 50);
+        g.dispose();
+        bs.show();
     }
 }
