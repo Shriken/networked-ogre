@@ -1,6 +1,8 @@
 package NetworkedOgre;
 
 import NetworkedOgre.tiles.Tile;
+import NetworkedOgre.tiles.GroundTile;
+import NetworkedOgre.tiles.NothingTile;
 
 public class Board {
 
@@ -13,7 +15,7 @@ public class Board {
 
     public Board() {
         tilemap = new Tile[NUM_COLS][NUM_ROWS_MAX];
-        setAll(Tile.GROUND);
+        setAll(new GroundTile());
     }
 
     public int getWidth() {
@@ -46,6 +48,7 @@ public class Board {
                 setTile(i, j, tile);
             }
         }
+        setNothingTiles();
     }
 
     public void setColumn(int x, Tile tile) {
@@ -59,12 +62,13 @@ public class Board {
         for (int i = 0; i < NUM_COLS; i++) {
             setTile(i, y, tile);
         }
+        setNothingTiles();
     }
 
-    public void setNonexistent() {
+    public void setNothingTiles() {
         for (int i = 0; i < NUM_COLS; i++) {
             if (i % 2 == 1) {
-                setTile(i, NUM_ROWS_MAX, nothing);
+                setTile(i, NUM_ROWS_MAX, new NothingTile());
             }
         }
     }
