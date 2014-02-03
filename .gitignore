@@ -1,5 +1,5 @@
 # Java class files
 *.class
 
-# vim .swp
+# vim swp files
 *.swp
