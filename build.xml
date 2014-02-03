@@ -19,7 +19,7 @@
 
     <manifest file="${bin}/MANIFEST.MF">
         <attribute name="Main-Class"
-            value="NetworkedOgre"/>
+            value="NetworkedOgre/NetworkedOgre"/>
         <attribute name="Created-By"
             value="Justin Kim, Zane Sterling"/>
         <attribute name="Class-Path"
