@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="NetworkedOgre">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <property name="bin" value="bin"/>
+    <property name="src" value="src"/>
+
+    <path id="javac_path">
+        <pathelement location="${bin}"/>
+    </path>
+
+    <mkdir dir="${bin}"/>
+
+    <manifestclasspath property="manifest_path" jarfile="${bin}/NetworkedOgre.jar">
+        <classpath path="${bin}"/>
+    </manifestclasspath>
+
+    <manifest file="${bin}/MANIFEST.MF">
+        <attribute name="Main-Class"
+            value="NetworkedOgre"/>
+        <attribute name="Created-By"
+            value="Justin Kim, Zane Sterling"/>
+        <attribute name="Class-Path"
+            value="${manifest_path}"/>
+    </manifest>
+
+    <target name="clean">
+        <delete dir="${bin}"/>
+    </target>
+
+    <target depends="clean" name="cleanall"/>
+
+    <target name="build">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${bin}"
+               source="${source}" target="${target}" includeantruntime="false">
+            <src path="${src}"/>
+            <classpath refid="javac_path"/>
+        </javac>
+        <jar file="${bin}/NetworkedOgre.jar" manifest="${bin}/MANIFEST.MF">
+            <fileset dir="${bin}" includes="**/*.class"/>
+        </jar>
+    </target>
+
+    <target depends="build" name="run">
+        <java jar="${bin}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="urn">
+        <echo message="  ______"/>
+        <echo message=" (______)"/>
+        <echo message="   )  ("/>
+        <echo message=" ,'    `."/>
+        <echo message="(¯\(°_o)/¯)"/>
+        <echo message=" `.    .'"/>
+        <echo message="   )  ("/>
+        <echo message="  /____\"/>
+</target>
+
+</project>
