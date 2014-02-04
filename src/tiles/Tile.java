@@ -7,7 +7,7 @@ import NetworkedOgre.units.Unit;
 
 public class Tile {
 
-    protected static final Color BEIGE = new Color(222, 215, 197);
+    public static final Color BEIGE = new Color(230, 220, 150);
 
     private Color color;
     private ArrayList<Unit> units;
