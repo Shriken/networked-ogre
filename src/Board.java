@@ -16,6 +16,7 @@ public class Board {
     public Board() {
         tilemap = new Tile[NUM_COLS][NUM_ROWS_MAX];
         setAll(new GroundTile());
+        setNothingTiles();
     }
 
     public int getWidth() {
