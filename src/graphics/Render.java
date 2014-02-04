@@ -1,7 +1,7 @@
 package NetworkedOgre.graphics;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import NetworkedOgre.Game;
@@ -28,7 +28,7 @@ public class Render {
 
     public void render() {
         BufferStrategy bs = screen.getBufferStrategy();
-        Graphics g = bs.getDrawGraphics();
+        Graphics2D g = (Graphics2D) bs.getDrawGraphics();
         g.setColor(Color.RED);
         g.fillRect(0, 0, 50, 50);
         g.dispose();
