@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import NetworkedOgre.Game;
+import NetworkedOgre.tiles.GroundTile;
 
 public class Render {
 
@@ -29,7 +30,8 @@ public class Render {
     public void render() {
         BufferStrategy bs = screen.getBufferStrategy();
         Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-        g.setColor(Color.RED);
+		GroundTile t = new GroundTile();
+        g.setColor(t.getColor());
         g.fillRect(0, 0, 50, 50);
         g.dispose();
         bs.show();
