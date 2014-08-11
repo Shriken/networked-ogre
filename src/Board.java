@@ -14,7 +14,7 @@ public class Board {
 		WIDTH = width;
         ODD_COLUMN_SIZE = first_col_height;
         EVEN_COLUMN_SIZE = first_col_height + 1;
-        tilemap = new Tile[WIDTH][ODD_COLUMN_SIZE];
+        generateTilemap();
         reset();
     }
 
@@ -34,6 +34,14 @@ public class Board {
 
     public void setTile(int x, int y, Tile tile) {
         tilemap[x][y] = tile;
+    }
+
+    private void generateTilemap();
+        tilemap =  new Tile[WIDTH][];
+        for (int i = 0; i < tilemap.lenght; i++) {
+            int size = (i % 2 == 0) ? ODD_COLUMN_WIDTH : EVEN_COLUMN_WIDTH;
+            tilemap[i] = new Tile[size];
+        }
     }
 
     private void setNothingTiles() {
