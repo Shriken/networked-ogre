@@ -23,7 +23,7 @@ public class Board  {
         }
     }
 
-    public void setTile(Tile tile) {
-        tilemap[i][j] = tile;
+    public void setTile(int x, int y, Tile tile) {
+        tilemap[x][y] = tile;
     }
 }
