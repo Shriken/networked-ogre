@@ -12,8 +12,8 @@ public class Board {
 
     public Board(int width, int first_col_height) {
 		WIDTH = width;
-    	ODD_COLUMN_SIZE = first_col_height;
-    	EVEN_COLUMN_SIZE = first_col_height+1;
+        ODD_COLUMN_SIZE = first_col_height;
+        EVEN_COLUMN_SIZE = first_col_height + 1;
         tilemap = new Tile[WIDTH][ODD_COLUMN_SIZE];
         reset();
     }
@@ -34,9 +34,9 @@ public class Board {
 
     private void setNothingTiles() {
         for (int i = 0; i < tilemap.length; i++) {
-            // On all odd indices (even-numbered columns)
-            if (i % 2 != 0) {
-                for (int j = 0; j < ODD_COLUMN_SIZE - EVEN_COLUMN_SIZE; j++) {
+            // On all even indices (odd-numbered columns)
+            if (i % 2 == 0) {
+                for (int j = 0; j < EVEN_COLUMN_SIZE - ODD_COLUMN_SIZE; j++) {
                     setTile(i, tilemap[i].length - j, new NothingTile());
                 }
             }
