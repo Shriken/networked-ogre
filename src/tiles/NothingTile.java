@@ -1,4 +1,4 @@
-package NetworkedOgre;
+package NetworkedOgre.tiles;
 
 import java.awt.Color;
 

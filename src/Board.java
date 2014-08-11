@@ -1,5 +1,7 @@
 package NetworkedOgre;
 
+import NetworkedOgre.tiles.*;
+
 public class Board {
     // Size of columns 1, 3, 5, ...
     public final int ODD_COLUMN_SIZE;
@@ -36,10 +38,10 @@ public class Board {
         tilemap[x][y] = tile;
     }
 
-    private void generateTilemap();
-        tilemap =  new Tile[WIDTH][];
-        for (int i = 0; i < tilemap.lenght; i++) {
-            int size = (i % 2 == 0) ? ODD_COLUMN_WIDTH : EVEN_COLUMN_WIDTH;
+    private void generateTilemap() {
+        tilemap = new Tile[WIDTH][];
+        for (int i = 0; i < tilemap.length; i++) {
+            int size = (i % 2 == 0) ? ODD_COLUMN_SIZE : EVEN_COLUMN_SIZE;
             tilemap[i] = new Tile[size];
         }
     }
