@@ -28,6 +28,10 @@ public class Board {
         setNothingTiles();
     }
 
+    public Tile getTile(int x, int y) {
+        return tilemap[x][y];
+    }
+
     public void setTile(int x, int y, Tile tile) {
         tilemap[x][y] = tile;
     }
