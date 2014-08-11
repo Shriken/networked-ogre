@@ -1,16 +1,19 @@
 package NetworkedOgre;
 
-public class Board  {
+public class Board {
     // Size of columns 1, 3, 5, ...
-    private static final int ODD_COLUMN_SIZE = 21;
+    public final int ODD_COLUMN_SIZE;
     // Size of columns 2, 4, 6, ...
-    private static final int EVEN_COLUMN_SIZE = 20;
+    public final int EVEN_COLUMN_SIZE;
     // Number of total columns
-    private static final int WIDTH = 15;
+    public final int WIDTH;
 
     private Tile[][] tilemap;
 
-    public Board() {
+    public Board(int width, int first_col_height) {
+		WIDTH = width;
+    	ODD_COLUMN_SIZE = first_col_height;
+    	ODD_COLUMN_SIZE = first_col_height+1;
         tilemap = new Tile[WIDTH][ODD_COLUMN_SIZE];
         reset();
     }
