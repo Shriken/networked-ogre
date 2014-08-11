@@ -46,12 +46,17 @@ public class Board {
         }
     }
 
+    public Tile getTile(int x, int y) {
+		return tilemap[x][y];
+    }
+
     private void setNothingTiles() {
         for (int i = 0; i < tilemap.length; i++) {
             // On all even indices (odd-numbered columns)
             if (i % 2 == 0) {
-                for (int j = 0; j < EVEN_COLUMN_SIZE - ODD_COLUMN_SIZE; j++) {
+                for (int j = 1; j <= EVEN_COLUMN_SIZE - ODD_COLUMN_SIZE; j++) {
                     setTile(i, tilemap[i].length - j, new NothingTile());
+                    System.out.println(i + " " + (tilemap[i].length - j));
                 }
             }
         }
