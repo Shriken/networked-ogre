@@ -21,9 +21,22 @@ public class Board  {
                 setTile(i, j, new ClearTile());
             }
         }
+
+        setNothingTiles();
     }
 
     public void setTile(int x, int y, Tile tile) {
         tilemap[x][y] = tile;
+    }
+
+    private void setNothingTiles() {
+        for (int i = 0; i < tilemap.length; i++) {
+            // On all odd indices (even-numbered columns)
+            if (i % 2 != 0) {
+                for (int j = 0; j < ODD_COLUMN_SIZE - EVEN_COLUMN_SIZE; j++) {
+                    setTile(i, tilemap[i].length - j, new NothingTile());
+                }
+            }
+        }
     }
 }
