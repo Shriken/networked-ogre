@@ -13,7 +13,7 @@ public class Board {
     public Board(int width, int first_col_height) {
 		WIDTH = width;
     	ODD_COLUMN_SIZE = first_col_height;
-    	ODD_COLUMN_SIZE = first_col_height+1;
+    	EVEN_COLUMN_SIZE = first_col_height+1;
         tilemap = new Tile[WIDTH][ODD_COLUMN_SIZE];
         reset();
     }
