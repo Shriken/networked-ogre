@@ -12,9 +12,11 @@ import NetworkedOgre.tiles.Tile;
 
 public class Renderer {
 
-	private static final int WIDTH = 480;
-	private static final int HEIGHT = 760;
-	private static final double TILE_RADIUS = 19;
+	private static final int WIDTH = 500;
+	private static final int HEIGHT = 800;
+	private static final int TILE_RADIUS = 20;
+	private static final int OFFSET_H = TILE_RADIUS * 2;
+	private static final int OFFSET_V = TILE_RADIUS * 2;
 
 	private Game game;
 	private Frame frame;
@@ -60,11 +62,11 @@ public class Renderer {
 		Tile t = game.board.getTile(x, y);
 
 		double r = TILE_RADIUS;
-		double hr = r * Math.sqrt(3); // the "height radius", or height of a half hex
+		double hr = r * Math.sqrt(3) / 2; // the "height radius", or height of a half hex
 
 		// the coordinates of the center of the hex
-		int cx = (int) (2*r + x * 1.5 * r);
-		int cy = (int) (2*r + (y + ((x+1) % 2) / 2.) * Math.sqrt(3) * r);
+		int cx = OFFSET_H + (int) (x * 1.5 * r);
+		int cy = OFFSET_V + (int) ((2 * y + ((x+1) % 2)) * hr);
 		Hex hex = new Hex(cx, cy, r);
 
 		// fill and draw the outline
