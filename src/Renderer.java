@@ -19,6 +19,7 @@ public class Renderer {
 	private Game game;
 	private Frame frame;
 	private RenderCanvas screen;
+	private UIHandler uihandler;
 
 	public Renderer(Game game) {
 		this.game = game;
@@ -31,6 +32,9 @@ public class Renderer {
 		frame.setVisible(true);
 
 		screen.createBufferStrategy(2);
+
+		uihandler = new UIHandler(game);
+		screen.addMouseListener(uihandler);
 	}
 
 	// render the board to the frame and display it
