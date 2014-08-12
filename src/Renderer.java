@@ -8,7 +8,7 @@ import java.awt.image.BufferStrategy;
 
 public class Renderer {
 
-	private static final int WIDTH = 640;
+	private static final int WIDTH = 320;
 	private static final int HEIGHT = 480;
 
 	private Game game;
@@ -42,7 +42,10 @@ public class Renderer {
 				if (t instanceof NothingTile) continue; // skip NothingTiles
 
 				g.setColor(t.color);
-				g.fillRect(i * 20, j * 20 + 10 * ((i+1) % 2), 10, 10);
+				double r = 6;
+				double hr = r * Math.sqrt(3);
+				g.fillRect((int) (i * 3 * r), (int) ((j * 2 + ((i+1) % 2)) * hr),
+				           (int) r * 2, (int) r * 2);
 			}
 		}
 
