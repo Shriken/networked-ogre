@@ -36,7 +36,8 @@ public class Renderer {
 
 		// render each tile
 		for (int i = 0; i < board.WIDTH; i++) {
-			for (int j = 0; j < board.EVEN_COLUMN_SIZE; j++) {
+			for (int j = 0; j < ((i % 2 == 0) ? board.ODD_COLUMN_SIZE :
+			                                    board.EVEN_COLUMN_SIZE); j++) {
 				Tile t = board.getTile(i, j);
 				if (t instanceof NothingTile) continue; // skip NothingTiles
 
