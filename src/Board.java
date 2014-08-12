@@ -43,7 +43,7 @@ public class Board {
             tilemap[i] = new Tile[size];
 
             for (int j = 0; j < size; j++) {
-                tilemap[i][j] = new Tile();
+                tilemap[i][j] = new ClearTile();
             }
         }
     }
