@@ -1,7 +1,7 @@
 package NetworkedOgre;
 
-import javax.swing.JFrame;
 import java.util.ArrayList;
+import java.awt.Frame;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Color;
@@ -17,7 +17,7 @@ public class Renderer {
 	private static final double TILE_RADIUS = 19;
 
 	private Game game;
-	private JFrame frame;
+	private Frame frame;
 	private RenderCanvas screen;
 
 	public Renderer(Game game) {
@@ -25,7 +25,7 @@ public class Renderer {
 		screen = new RenderCanvas(WIDTH, HEIGHT);
 
 		// initialize the frame
-		frame = new JFrame("Networked Ogre");
+		frame = new Frame("Networked Ogre");
 		frame.add(screen);
 		frame.pack();
 		frame.setVisible(true);
