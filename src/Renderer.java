@@ -8,8 +8,8 @@ import java.awt.image.BufferStrategy;
 
 public class Renderer {
 
-	private static final int WIDTH = 320;
-	private static final int HEIGHT = 480;
+	private static final int WIDTH = 480;
+	private static final int HEIGHT = 760;
 
 	private Game game;
 	private JFrame frame;
@@ -42,10 +42,14 @@ public class Renderer {
 				if (t instanceof NothingTile) continue; // skip NothingTiles
 
 				g.setColor(t.color);
-				double r = 6;
+				double r = 19;
 				double hr = r * Math.sqrt(3);
-				g.fillRect((int) (i * 3 * r), (int) ((j * 2 + ((i+1) % 2)) * hr),
-				           (int) r * 2, (int) r * 2);
+				int x = (int) (2*r + i * 1.5 * r);
+				int y = (int) (2*r + (j + ((i+1) % 2) / 2.) * Math.sqrt(3) * r);
+				Hex hex = new Hex(x, y, r);
+				g.fillPolygon(hex);
+				g.setColor(Color.BLACK);
+				g.drawPolygon(hex);
 			}
 		}
 
