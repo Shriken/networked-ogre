@@ -10,6 +10,7 @@ public class Renderer {
 
 	private static final int WIDTH = 480;
 	private static final int HEIGHT = 760;
+	private static final double TILE_RADIUS = 19;
 
 	private Game game;
 	private JFrame frame;
@@ -38,22 +39,30 @@ public class Renderer {
 		for (int i = 0; i < board.WIDTH; i++) {
 			for (int j = 0; j < ((i % 2 == 0) ? board.ODD_COLUMN_SIZE :
 			                                    board.EVEN_COLUMN_SIZE); j++) {
-				Tile t = board.getTile(i, j);
-				if (t instanceof NothingTile) continue; // skip NothingTiles
-
-				g.setColor(t.color);
-				double r = 19;
-				double hr = r * Math.sqrt(3);
-				int x = (int) (2*r + i * 1.5 * r);
-				int y = (int) (2*r + (j + ((i+1) % 2) / 2.) * Math.sqrt(3) * r);
-				Hex hex = new Hex(x, y, r);
-				g.fillPolygon(hex);
-				g.setColor(Color.BLACK);
-				g.drawPolygon(hex);
+				drawTile(i, j, g);
 			}
 		}
 
 		bs.show();
 		g.dispose();
+	}
+
+	private void drawTile(int x, int y, Graphics g) {
+		Tile t = game.board.getTile(x, y);
+		if (t instanceof NothingTile) return; // don't render NothingTiles
+
+		double r = TILE_RADIUS;
+		double hr = r * Math.sqrt(3); // the "height radius", or height of a half hex
+
+		// the coordinates of the center of the hex
+		int cx = (int) (2*r + x * 1.5 * r);
+		int cy = (int) (2*r + (y + ((x+1) % 2) / 2.) * Math.sqrt(3) * r);
+		Hex hex = new Hex(cx, cy, r);
+
+		// fill and draw the outline
+		g.setColor(t.color);
+		g.fillPolygon(hex);
+		g.setColor(Color.BLACK);
+		g.drawPolygon(hex);
 	}
 }
