@@ -49,7 +49,6 @@ public class Renderer {
 
 	private void drawTile(int x, int y, Graphics g) {
 		Tile t = game.board.getTile(x, y);
-		if (t instanceof NothingTile) return; // don't render NothingTiles
 
 		double r = TILE_RADIUS;
 		double hr = r * Math.sqrt(3); // the "height radius", or height of a half hex
