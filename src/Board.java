@@ -26,16 +26,14 @@ public class Board {
                 setTile(i, j, new ClearTile());
             }
         }
-
-        setNothingTiles();
-    }
-
-    public Tile getTile(int x, int y) {
-        return tilemap[x][y];
     }
 
     public void setTile(int x, int y, Tile tile) {
         tilemap[x][y] = tile;
+    }
+
+    public Tile getTile(int x, int y) {
+        return tilemap[x][y];
     }
 
     private void generateTilemap() {
@@ -43,21 +41,9 @@ public class Board {
         for (int i = 0; i < tilemap.length; i++) {
             int size = (i % 2 == 0) ? ODD_COLUMN_SIZE : EVEN_COLUMN_SIZE;
             tilemap[i] = new Tile[size];
-        }
-    }
 
-    public Tile getTile(int x, int y) {
-		return tilemap[x][y];
-    }
-
-    private void setNothingTiles() {
-        for (int i = 0; i < tilemap.length; i++) {
-            // On all even indices (odd-numbered columns)
-            if (i % 2 == 0) {
-                for (int j = 1; j <= EVEN_COLUMN_SIZE - ODD_COLUMN_SIZE; j++) {
-                    setTile(i, tilemap[i].length - j, new NothingTile());
-                    System.out.println(i + " " + (tilemap[i].length - j));
-                }
+            for (int j = 0; j < size; j++) {
+                tilemap[i][j] = new Tile();
             }
         }
     }
