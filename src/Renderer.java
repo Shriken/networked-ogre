@@ -1,10 +1,14 @@
 package NetworkedOgre;
 
 import javax.swing.JFrame;
+import java.util.ArrayList;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.image.BufferStrategy;
+
+import NetworkedOgre.units.Unit;
+import NetworkedOgre.tiles.Tile;
 
 public class Renderer {
 
@@ -47,6 +51,7 @@ public class Renderer {
 		g.dispose();
 	}
 
+	// draw a single tile from the board and everything on it
 	private void drawTile(int x, int y, Graphics g) {
 		Tile t = game.board.getTile(x, y);
 
@@ -63,5 +68,13 @@ public class Renderer {
 		g.fillPolygon(hex);
 		g.setColor(Color.BLACK);
 		g.drawPolygon(hex);
+
+		ArrayList<Unit> units = t.getUnits();
+		for (int i = 0; i < units.size(); i++) {
+			drawUnit(units.get(i), g);
+		}
 	}
+
+	// draw a single unit
+	private void drawUnit(Unit u, Graphics g) {}
 }
