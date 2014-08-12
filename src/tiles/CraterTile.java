@@ -9,12 +9,12 @@ public class CraterTile extends Tile {
         super(Color.BLACK);
     }
 
-    public void addUnit(Unit unit) {
-        throw new NoPutTheUnitInTheCraterException();
+    public void addUnit(Unit unit) throws NoPutTheUnitInTheCraterException {
+        throw new NoPutTheUnitInTheCraterException("no putting the unit in the crater!");
     }
 }
 
-public class NoPutTheUnitInTheCraterException extends Exception {
+class NoPutTheUnitInTheCraterException extends Exception {
     public NoPutTheUnitInTheCraterException(String message) {
         super(message);
     }

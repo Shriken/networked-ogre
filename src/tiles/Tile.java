@@ -12,11 +12,11 @@ public class Tile {
 
     public Tile(Color color) {
         this.color = color;
-        this.ridges = new boolean[];
+        this.ridges = new boolean[6];
         this.units = new ArrayList<Unit>();
     }
 
-    public void addUnit(Unit unit) {
+    public void addUnit(Unit unit) throws NoPutTheUnitInTheCraterException {
         units.add(unit);
     }
 
