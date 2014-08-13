@@ -12,11 +12,11 @@ import NetworkedOgre.tiles.Tile;
 
 public class Renderer {
 
-	private static final int WIDTH = 500;
-	private static final int HEIGHT = 800;
-	private static final int TILE_RADIUS = 20;
-	private static final int OFFSET_H = TILE_RADIUS * 2;
-	private static final int OFFSET_V = TILE_RADIUS * 2;
+	public static final int WIDTH = 500;
+	public static final int HEIGHT = 800;
+	public static final int TILE_RADIUS = 20;
+	public static final int OFFSET_H = TILE_RADIUS * 2;
+	public static final int OFFSET_V = TILE_RADIUS * 2;
 
 	private Game game;
 	private Frame frame;
