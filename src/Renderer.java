@@ -18,6 +18,9 @@ public class Renderer {
 	public static final int OFFSET_H = TILE_RADIUS * 2;
 	public static final int OFFSET_V = TILE_RADIUS * 2;
 
+	// the height of half a hex
+	public static final double HEIGHT_RADIUS = TILE_RADIUS * Math.sqrt(3) / 2;
+
 	private Game game;
 	private Frame frame;
 	private RenderCanvas screen;
@@ -62,7 +65,7 @@ public class Renderer {
 		Tile t = game.board.getTile(x, y);
 
 		double r = TILE_RADIUS;
-		double hr = r * Math.sqrt(3) / 2; // the "height radius", or height of a half hex
+		double hr = HEIGHT_RADIUS;
 
 		// the coordinates of the center of the hex
 		int cx = OFFSET_H + (int) (x * 1.5 * r);
